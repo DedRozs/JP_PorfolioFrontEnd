@@ -1,0 +1,28 @@
+runtime: nodejs20
+# service: front-end # prefix/subdomain of the bucket specific to project and environment
+
+handlers:
+  - url: /assets/(.*)
+    static_files: dist/assets/\1
+    upload: dist/assets(.*)
+    secure: always
+  - url: /assets/css/(.*)
+    static_files: dist/assets/css/\1
+    upload: dist/assets/css/(.*)
+    secure: always
+  - url: /assets/media/(.*)
+    static_files: dist/assets/media/\1
+    upload: dist/assets/media/(.*)
+    secure: always
+  - url: /(.*\.(json|ico|png|jpg|svg))$
+    static_files: dist/\1
+    upload: dist/.*\.(json|ico|png|jpg|svg)$
+    secure: always
+  - url: /
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
+  - url: /.*
+    static_files: dist/index.html
+    upload: dist/index.html
+    secure: always
