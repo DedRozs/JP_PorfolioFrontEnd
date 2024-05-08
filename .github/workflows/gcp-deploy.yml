@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js and yarn
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Install dependencies
         run: yarn install
@@ -34,7 +34,7 @@ jobs:
       # It will have build folder and app.yaml
       # app.yaml will use the relative build folder to deploy to GCPs
       - name: Copy build to temp folder
-        run: cp -r dist/ temp_folder/build/
+        run: cp -r dist/ temp_folder/dist/
 
       - name: Copy app.yaml to temp folder
         run: cp app.yaml temp_folder/app.yaml
